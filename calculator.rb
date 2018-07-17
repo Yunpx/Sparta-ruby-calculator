@@ -22,8 +22,8 @@ result_2=0
 errorcode = "incorrect code input"
 
 if settings== "1"||settings =="2"
-  number1 = get_number("please enter the first number. ").to_i
-  number2 = get_number("Please enter the second number. ").to_i
+  number1 = get_number("please enter the first number. ").to_f
+  number2 = get_number("Please enter the second number. ").to_f
 end
 
 case settings
@@ -70,21 +70,21 @@ case settings
       settings= get_choice "Please select the method you wish to calculate your BMI. 1-Imperial, 2-Metric."
       case settings
         when "1"
-          number1 = get_choice("Please enter your weight in pounds(lb).").to_i
-          number2 = get_choice("Please enter your height in inches(in)").to_i
+          number1 = get_choice("Please enter your weight in pounds(lb).").to_f
+          number2 = get_choice("Please enter your height in inches(in)").to_f
           result = number1*703
           result_2= number2*number2
           result = result/ result_2
-          puts "Your BMI score is  #{result}."
+          puts "Your BMI score is  #{result.round(2)}."
 
         when "2"
-          number1 = get_choice("Please enter your weight in Kilograms(kg).").to_i
-          number2 = get_choice("Please enter your height in meters(m)" ).to_i
+          number1 = get_choice("Please enter your weight in Kilograms(kg).").to_f
+          number2 = get_choice("Please enter your height in meters(m)" ).to_f
           result = number1
           result_2= number2 * number2
           result = result/ result_2
 
-          puts "Your BMI score is #{result}."
+          puts "Your BMI score is #{result.round(2)}."
         else
           puts errorcode
         end
@@ -100,7 +100,7 @@ case settings
       wastedFuel=0
       ineffective=0
       time = distance/speed
-      puts "Your trip will take #{time} hours, "
+      puts "Your trip will take #{time.round(2)} hours, "
 
       if speed>0 && speed <=limit
         fuel =distance/efficiency
@@ -112,7 +112,7 @@ case settings
         fuel = fuel + wastedFuel
         #total
         totalCost= cost * fuel
-        puts "it will cost you #{totalCost}!"
+        puts "it will cost you #{totalCost.round(2)}!"
     end
   else
     puts errorcode
